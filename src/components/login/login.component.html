@@ -1,0 +1,97 @@
+<body>
+
+    <!--Log In-->
+    <div *ngIf="isLogIn" class="signup-form">
+        <form>
+            <h2>Log In</h2>
+            <p class="lead">Please fill in this form to login.</p>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon pt-2"><i class="material-icons">
+                            mobile_screen_share
+                        </i></span>
+                    <input type="text" [(ngModel)]="mobileNumber" class="form-control" name="mobileNumber"
+                        placeholder="Mobile Number" required="required">
+                </div>
+            </div>
+            <div *ngIf="loginWithPwd" class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" [(ngModel)]="pwd" class="form-control" name="pwd" placeholder="Password"
+                        required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-lg" (click)="logIn()">Log In</button>
+            </div>
+            <p class="small text-center">
+                <a *ngIf="loginWithPwd" (click)="enableLoginWithOtp()">Login with OTP</a>
+                <a *ngIf="loginWithOtp" (click)="enableLoginWithPwd()">Login with Password</a> &nbsp;&nbsp;&nbsp;
+                <a *ngIf="loginWithPwd" (click)="enableForgetPwd()">Forget Password</a>
+            </p>
+        </form>
+    </div>
+
+    <!--OTP-->
+    <div *ngIf="isOtp" class="signup-form">
+        <form>
+            <h2>Confirm OTP</h2>
+            <p class="lead">Enter the OTP received in your mobile!</p>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon pt-2">
+                        <mdb-icon fas icon="key"></mdb-icon>
+                    </span>
+                    <input type="text" [(ngModel)]="otp" class="form-control" name="otp" placeholder="OTP Number"
+                        required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-lg" (click)="verifyOtp()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!--Forget Pwd-->
+    <div *ngIf="isForgetPwd" class="signup-form">
+        <form>
+            <h2>Forget Password</h2>
+            <p class="lead">Please enter your mobile number for OTP verification.</p>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="mobileNumber" class="form-control" name="mobileNumber"
+                        placeholder="Mobile Number" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-lg" (click)="sendForgetPwdOtp()">Send OTP</button>
+            </div>
+            <p class="small text-center">
+                <a (click)="enableLoginWithOtp()">Login with OTP</a>&nbsp;&nbsp;&nbsp;
+                <a (click)="enableLoginWithPwd()">Login with Password</a>
+            </p>
+        </form>
+    </div>
+
+    <!--New Pwd-->
+    <div *ngIf="showNewPwd" class="signup-form">
+        <form>
+            <h2>New Password</h2>
+            <p class="lead">Please enter new password.</p>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-lock pt-2"></i>
+                        <i class="fa fa-check pt-2"></i>
+                    </span>
+                    <input type="password" [(ngModel)]="newPwd" class="form-control" name="newPwd"
+                        placeholder="New Password" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block btn-lg" (click)="setNewPwd()">Set New Password</button>
+            </div>
+        </form>
+    </div>
+
+</body>
