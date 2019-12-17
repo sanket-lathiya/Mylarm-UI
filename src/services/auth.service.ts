@@ -5,11 +5,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { backend_url } from '../configs/config';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public token: string = '';
 

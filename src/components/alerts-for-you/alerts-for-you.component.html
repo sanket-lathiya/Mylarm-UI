@@ -1,0 +1,36 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let alert of alertList; let i = index" style="margin-top: 1%;" [expanded]="i==0">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{alert.GROUP_NAME}}
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        {{alert.FIRST_NAME}} {{alert.LAST_NAME}} : {{alert.MOBILE_NUMBER}}: {{alert.NOTIFICATION_DATE}}
+        <button mat-button color="accent" style="outline: none;"
+            (click)="openLocation(alert.LATITUDE, alert.LONGITUDE)">Location</button>
+        <button mat-button color="primary" style="outline: none;"
+            (click)="respondAlert(alert.NOTIFICATION_ID)">Respond</button>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Responded Time</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let responder of alert.responderList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{responder.FIRST_NAME}} {{responder.LAST_NAME}}</td>
+                    <td>{{responder.MOBILE_NUMBER}}</td>
+                    <td>{{responder.RESPOND_TIME}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-expansion-panel>
+</mat-accordion>

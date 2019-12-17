@@ -1,0 +1,48 @@
+.btn-danger {
+  box-shadow: 0 0 0 1px #c63702 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #b32400,
+    0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #c63702;
+  color: white;
+}
+.btn-warning {
+  box-shadow: 0 0 0 1px #ff944d inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #cc5200,
+    0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #ff6600;
+  color: white;
+}
+.btn-primary {
+  box-shadow: 0 0 0 1px #4d94ff inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #0047b3,
+    0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #005ce6;
+  color: white;
+}
+.btn-success {
+  box-shadow: 0 0 0 1px #5cd65c inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #29a329,
+    0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #47d147;
+  color: white;
+}
+.btn3d {
+  transition: all 0.08s linear;
+  position: relative;
+  outline: medium none;
+  outline-style: none;
+  border: 1px;
+  border-radius: 50%;
+}
+.centralize-div {
+  justify-content: center;
+  margin-top: 15vh;
+}
+.div-individual {
+  margin-left: 5%;
+  width: 39%;
+  height: 25vh;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.btn-align {
+  width: 90%;
+  height: 100%;
+}

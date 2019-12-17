@@ -1,24 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style="margin-right: -30px;">
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand mx-auto">
-    <h4 style="margin-right: 30px; font-weight: 400; color:greenyellow" routerLink="">Mylarm</h4>
+  <a class="navbar-brand">
+    <h4 style="font-weight: 400; color:greenyellow; outline: none; cursor: pointer;" routerLink="/home">Mylarm</h4>
   </a>
-  <div class="collapse navbar-collapse" id="navbarText">
+  <div *ngIf="isLogin" class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/Manage_groups" routerLinkActive="active">Groups</a>
+        <a class="nav-link" routerLink="/groups" routerLinkActive="active">Groups</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/notification" routerLinkActive="active">Notifications</a>
+        <a class="nav-link" routerLink="/my-alerts" routerLinkActive="active">My Alerts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/alerts-for-you" routerLinkActive="active">Alerts For You</a>
       </li>
     </ul>
   </div>
-  <div>
+  <div style="text-align: end;">
     <a *ngIf="!isLogin" mat-raised-button routerLink="/login">Login</a>
+    <a *ngIf="!isLogin" mat-raised-button routerLink="/signup" style="margin-left: 3px;">Sign Up</a>
+    <button *ngIf="isPlay" type="button" class="btn btn-sm btn-warning mt-1" style="outline: none;"
+      (click)="pauseAudio()">Pause Sound</button>
     <a *ngIf="isLogin" mat-raised-button style="margin-left: 10px;" (click)="logout()">Logout</a>
   </div>
 </nav>

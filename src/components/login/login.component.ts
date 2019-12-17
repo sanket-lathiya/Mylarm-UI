@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         if (this.result.status === 'success') {
           this.authService.setLogin(this.result.data.accessToken)
           //this.storeService.stopLoading();
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         } else {
           this.toast.errorToastr(this.result.error.errorMessage, 'Oops!', { toastTimeout: 2000 });
         }
@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.authService.setLogin(this.result.data.accessToken);
           //this.storeService.stopLoading();
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         }
       } else {
         this.toast.errorToastr(this.result.error.errorMessage, 'Oops!', { toastTimeout: 2000 });

@@ -1,0 +1,147 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Life Threat Group
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of LIFE_THREATENING_GROUP; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{member.MEMBER_NAME}}</td>
+                    <td>{{member.MOBILE_NUMBER}}</td>
+                    <td><button mat-button color="warn" style="outline: none;"
+                            (click)="removeMember(member)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Fire Group
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of FIRE_GROUP; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{member.MEMBER_NAME}}</td>
+                    <td>{{member.MOBILE_NUMBER}}</td>
+                    <td><button mat-button color="warn" style="outline: none;"
+                            (click)="removeMember(member)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Accident Group
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of ACCIDENT_GROUP; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{member.MEMBER_NAME}}</td>
+                    <td>{{member.MOBILE_NUMBER}}</td>
+                    <td><button mat-button color="warn" style="outline: none;"
+                            (click)="removeMember(member)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Medical Group
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of MEDICAL_GROUP; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{member.MEMBER_NAME}}</td>
+                    <td>{{member.MOBILE_NUMBER}}</td>
+                    <td><button mat-button color="warn" style="outline: none;"
+                            (click)="removeMember(member)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<button mat-fab class="float" data-toggle="modal" data-target="#exampleModalCenter"><i
+        class="material-icons md-36 center">add</i></button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add Member</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Select a Group</mat-label>
+                    <mat-select disableRipple [(ngModel)]="groupId">
+                        <mat-option value=1>Life Threatening</mat-option>
+                        <mat-option value=2>Fire</mat-option>
+                        <mat-option value=3>Accident</mat-option>
+                        <mat-option value=4>Medical</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Member Name" [(ngModel)]="newMemberName">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mobile Number" [(ngModel)]="newMemberNumber">
+                </mat-form-field>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="addNewMember()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

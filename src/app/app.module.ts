@@ -14,6 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from 'src/modules/angular-material.module';
 import { AuthGuard } from 'src/auth-guards/auth.guard';
 import { AuthService } from 'src/services/auth.service';
+import { MylarmComponent } from '../components/mylarm/mylarm.component';
+import { GroupsComponent } from '../components/groups/groups.component';
+import { GroupService } from 'src/services/group.service';
+import { MyAlertsComponent } from '../components/my-alerts/my-alerts.component';
+import { AlertsForYouComponent } from '../components/alerts-for-you/alerts-for-you.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,11 @@ import { AuthService } from 'src/services/auth.service';
     HomeComponent,
     NavbarComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    MylarmComponent,
+    GroupsComponent,
+    MyAlertsComponent,
+    AlertsForYouComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,7 @@ import { AuthService } from 'src/services/auth.service';
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
